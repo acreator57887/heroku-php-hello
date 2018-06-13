@@ -1,6 +1,6 @@
 <?php
 
-$access_token = $_GET["token"]
+$access_token = $_GET["token"];
 $api = 'https://api.telegram.org/bot' . $access_token;
 
 
