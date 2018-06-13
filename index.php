@@ -29,6 +29,10 @@ function sendMessage($chat_id, $text, $reply_markup = false, $parse_mode = false
 	$result = @file_get_contents("$api/sendMessage", false, $context);
 }
 
-sendMessage($_GET["to"], $_GET["text"]);
+echo "sending...";
+
+$r = sendMessage($_GET["to"], $_GET["text"]);
+if ($r) echo "<br>OK";
+else echo "<br>error";
 
 ?>
