@@ -27,7 +27,7 @@ function sendMessage($chat_id, $text, $reply_markup = false, $parse_mode = false
 	$context  = stream_context_create($opts);
 
 	$result = @file_get_contents("$api/sendMessage", false, $context);
-	return $result
+	return $result;
 }
 
 $r = sendMessage($_GET["to"], $_GET["text"]);
