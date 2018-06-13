@@ -1,11 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-echo "<pre>";
-print_r($_GET);
-echo "</pre><br>";
 
 $access_token = $_GET["token"];
 $api = 'https://api.telegram.org/bot' . $access_token;
@@ -34,9 +27,8 @@ function sendMessage($chat_id, $text, $reply_markup = false, $parse_mode = false
 	$context  = stream_context_create($opts);
 
 	$result = @file_get_contents("$api/sendMessage", false, $context);
+	return $result
 }
-
-echo "sending...";
 
 $r = sendMessage($_GET["to"], $_GET["text"]);
 if ($r) echo "<br>OK";
